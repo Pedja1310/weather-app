@@ -4,7 +4,7 @@ import { normalize } from "styled-normalize";
 const GlobalStyle = createGlobalStyle`
   ${normalize}
   
-  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
 
   html {
     box-sizing: border-box;
@@ -19,10 +19,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #fff;
+    background-image: linear-gradient(135deg, #009E9E, #8ECAED);
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI',
+    font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', 'Roboto', 'Segoe UI',
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;

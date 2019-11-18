@@ -19,6 +19,8 @@
   "rules": {
     "prettier/prettier": "error",
     "func-names": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-one-expression-per-line": "error",
+    "react/jsx-indent": ["error", 2]
   }
 }
