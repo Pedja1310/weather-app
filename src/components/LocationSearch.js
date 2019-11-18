@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import GooglePlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-google-places-autocomplete";
+import { LoadScript } from "@react-google-maps/api";
 import { WeatherContext } from "./context/WeatherContext";
 
 const SearchWrapper = styled.div`
@@ -16,6 +17,7 @@ export default function LocationSearch() {
   );
 
   const getWeatherData = async ({ lat, lng }) => {
+    console.log(lat, lng);
     const darkSkyEndpoint = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_API_KEY}/${lat},${lng}?units=si&exclude=minutely,flags,reports,alerts`;
     const response = await fetch(darkSkyEndpoint);
     const weatherReport = await response.json();
@@ -49,12 +51,19 @@ export default function LocationSearch() {
 
   return (
     <SearchWrapper>
-      <GooglePlacesAutocomplete
-        inputStyle={inputStyle}
-        suggestionsStyles={suggestionsStyles}
-        onSelect={handleSelect}
-        placeholder="Enter location"
-      />
+      <LoadScript
+        googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}
+        id="script-loader"
+        libraries={["geometry", "drawing", "places"]}
+        version="3"
+      >
+        <GooglePlacesAutocomplete
+          inputStyle={inputStyle}
+          suggestionsStyles={suggestionsStyles}
+          onSelect={handleSelect}
+          placeholder="Enter location"
+        />
+      </LoadScript>
     </SearchWrapper>
   );
 }
