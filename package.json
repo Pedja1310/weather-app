@@ -3,11 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@fortawesome/react-fontawesome": "^0.1.7",
     "@react-google-maps/api": "^1.7.12",
     "chart.js": "^2.9.3",
+    "gh-pages": "^2.1.1",
     "location-autocomplete": "^1.2.4",
     "moment": "^2.24.0",
     "react": "^16.11.0",

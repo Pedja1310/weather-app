@@ -23,11 +23,8 @@ export const WeatherProvider = ({ children }) => {
     <WeatherContext.Provider
       value={{
         currentWeather,
-        setCurrentWeather,
         hourlyWeather,
-        setHourlyWeather,
         weeklyWeather,
-        setWeeklyWeather,
         getWeatherData
       }}
     >

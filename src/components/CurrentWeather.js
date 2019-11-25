@@ -65,26 +65,20 @@ export default function CurrentWeatherComponent() {
           </div>
           <div className="weatherStats">
             <p>
-              Feels Like:               {roundTemperature(currentWeather.apparentTemperature)}
+              Feels Like: 
+{' '}
+{roundTemperature(currentWeather.apparentTemperature)}
               <span>&#8451;</span>
             </p>
+            <p>Wind Speed: {currentWeather.windSpeed} m/s                         </p>
             <p>
-Wind Speed:
+Humidity:
 {' '}
-{currentWeather.windSpeed}
-{' '}
-m/s
+{currentWeather.humidity * 100}
+%
 {' '}
 </p>
-            <p>Humidity: {currentWeather.humidity * 100}%                         </p>
-            <p>
-Pressure:
-{' '}
-{currentWeather.pressure}
-{' '}
-mBar
-{' '}
-</p>
+            <p>Pressure: {currentWeather.pressure} mBar                         </p>
           </div>
         </div>
         <div className="icon">
