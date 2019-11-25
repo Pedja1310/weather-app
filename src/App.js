@@ -1,9 +1,8 @@
 import React from "react";
 import GlobalWrapper from "./components/styles/GlobalWrapper";
 import Header from "./components/Header";
-import CurrentWeatherComponent from "./components/CurrentWeather";
-import HourlyWeatherComponent from "./components/HourlyWeather";
-import WeeklyWeatherComponent from "./components/WeeklyWeather";
+import PageSwitcher from "./components/PageSwitcher";
+
 import { WeatherProvider } from "./components/context/WeatherContext";
 
 function App() {
@@ -11,9 +10,7 @@ function App() {
     <WeatherProvider>
       <GlobalWrapper>
         <Header />
-        <CurrentWeatherComponent />
-        <HourlyWeatherComponent />
-        <WeeklyWeatherComponent />
+        <PageSwitcher />
       </GlobalWrapper>
     </WeatherProvider>
   );

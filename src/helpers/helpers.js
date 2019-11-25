@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export const roundTemperature = num => Math.floor(num);
+export const roundTemperature = num => Math.round(num);
 
 export const formatIconName = str => str.replace(/-/g, "_").toUpperCase();
 

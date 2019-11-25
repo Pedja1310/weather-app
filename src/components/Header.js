@@ -12,6 +12,9 @@ const Navbar = styled.nav`
   align-items: center;
   justify-content: space-between;
 
+  -webkit-box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.45);
+
   & .logo {
     font-size: 1.2rem;
     color: #fff;

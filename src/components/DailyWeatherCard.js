@@ -28,12 +28,18 @@ const Card = styled.div`
 
 export default function DailyWeatherCard({ item }) {
   const { temperatureLow, temperatureHigh, icon, time } = item;
-
+  // TODO fix indetation before github push
   return (
     <Card>
       <div className="temperature">
-        <p>Min: {roundTemperature(temperatureLow)}        </p>
-        <p>Max: {roundTemperature(temperatureHigh)}        </p>
+        <p>
+          Min:           {roundTemperature(temperatureLow)}
+          <span>&#8451;</span>
+        </p>
+        <p>
+          Max:           {roundTemperature(temperatureHigh)}
+          <span>&#8451;</span>
+        </p>
       </div>
       <div className="icon">
         <Skycons icon={formatIconName(icon)} color="white" />

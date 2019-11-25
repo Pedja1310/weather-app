@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import GooglePlacesAutocomplete, {
   geocodeByAddress,
@@ -12,21 +12,7 @@ const SearchWrapper = styled.div`
 `;
 
 export default function LocationSearch() {
-  const { setCurrentWeather, setWeeklyWeather, setHourlyWeather } = useContext(
-    WeatherContext
-  );
-
-  const getWeatherData = async ({ lat, lng }) => {
-    console.log(lat, lng);
-    const darkSkyEndpoint = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_API_KEY}/${lat},${lng}?units=si&exclude=minutely,flags,reports,alerts`;
-    const response = await fetch(darkSkyEndpoint);
-    const weatherReport = await response.json();
-    const { currently, hourly, daily } = weatherReport;
-
-    setCurrentWeather(currently);
-    setHourlyWeather(hourly.data);
-    setWeeklyWeather(daily.data.slice(1));
-  };
+  const { getWeatherData } = useContext(WeatherContext);
 
   const handleSelect = async e => {
     try {

@@ -8,8 +8,6 @@ const HourlyWeather = styled.section`
   height: 30%;
   width: 90%;
   margin: 0 auto;
-  /* border-top: 1px solid white;
-  border-bottom: 1px solid white; */
 
   -webkit-box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.45);
   box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.45);
