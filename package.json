@@ -2,7 +2,7 @@
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Pedja1310/weather-app",
+  "homepage": "https://pedja1310.github.io/weather-app/",
   "dependencies": {
     "@react-google-maps/api": "^1.7.12",
     "chart.js": "^2.9.3",
