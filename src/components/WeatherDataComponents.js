@@ -5,10 +5,10 @@ import WeeklyWeatherComponent from "./WeeklyWeather";
 
 export default function WeatherDataComponents() {
   return (
-    <>
+    <React.Fragment>
       <CurrentWeatherComponent />
       <HourlyWeatherComponent />
       <WeeklyWeatherComponent />
-    </>
+    </React.Fragment>
   );
 }

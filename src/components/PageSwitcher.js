@@ -7,12 +7,12 @@ import { WeatherContext } from "./context/WeatherContext";
 export default function PageSwitcher() {
   const { currentWeather } = useContext(WeatherContext);
   return (
-    <>
+    <React.Fragment>
       {Object.entries(currentWeather).length > 0 ? (
         <WeatherDataComponents />
       ) : (
         <LandingPage />
       )}
-    </>
+    </React.Fragment>
   );
 }

@@ -25,7 +25,7 @@ export const WeatherProvider = ({ children }) => {
         currentWeather,
         hourlyWeather,
         weeklyWeather,
-        getWeatherData
+        getWeatherData,
       }}
     >
       {children}

@@ -18,11 +18,11 @@ export default function HourlyWeatherComponent() {
 
   const temepratureData = hourlyWeather
     .filter((item, index) => index < 24)
-    .map(item => roundTemperature(item.temperature));
+    .map((item) => roundTemperature(item.temperature));
 
   const temepratureLabels = hourlyWeather
     .filter((item, index) => index < 24)
-    .map(item => `${formatUnix(item.time, "HH")}h`);
+    .map((item) => `${formatUnix(item.time, "HH")}h`);
 
   const chartData = {
     labels: temepratureLabels,
@@ -32,9 +32,9 @@ export default function HourlyWeatherComponent() {
         data: temepratureData,
         fill: false,
         borderColor: "rgba(255, 255, 255, 0.7)",
-        pointBackgroundColor: "rgba(255, 255, 255, 0.8)"
-      }
-    ]
+        pointBackgroundColor: "rgba(255, 255, 255, 0.8)",
+      },
+    ],
   };
 
   const chartOpions = {
@@ -42,7 +42,7 @@ export default function HourlyWeatherComponent() {
     title: {
       display: true,
       text: "24 Hour Prediction",
-      fontColor: "rgba(255,255,255, 0.5)"
+      fontColor: "rgba(255,255,255, 0.5)",
     },
     legend: { display: false },
     scales: {
@@ -53,12 +53,12 @@ export default function HourlyWeatherComponent() {
             drawBorder: false,
             drawTicks: false,
             drawOnChartArea: false,
-            display: false
+            display: false,
           },
           ticks: {
-            fontColor: "rgba(255,255,255, 0.5)"
-          }
-        }
+            fontColor: "rgba(255,255,255, 0.5)",
+          },
+        },
       ],
       yAxes: [
         {
@@ -67,23 +67,23 @@ export default function HourlyWeatherComponent() {
             drawBorder: false,
             drawTicks: false,
             drawOnChartArea: false,
-            display: false
+            display: false,
           },
           ticks: {
-            fontColor: "rgba(255,255,255, 0.5)"
-          }
-        }
-      ]
-    }
+            fontColor: "rgba(255,255,255, 0.5)",
+          },
+        },
+      ],
+    },
   };
 
   return (
-    <>
+    <React.Fragment>
       {hourlyWeather.length === 0 ? null : (
         <HourlyWeather>
           <Line data={chartData} options={chartOpions} />
         </HourlyWeather>
       )}
-    </>
+    </React.Fragment>
   );
 }

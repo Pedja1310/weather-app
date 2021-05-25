@@ -55,7 +55,7 @@ export default function CurrentWeatherComponent() {
   const { currentWeather } = useContext(WeatherContext);
 
   return (
-    <>
+    <React.Fragment>
       <CurrentWeather>
         <div className="weatherInformation">
           <div className="currentTemp">
@@ -65,20 +65,12 @@ export default function CurrentWeatherComponent() {
           </div>
           <div className="weatherStats">
             <p>
-              Feels Like: 
-{' '}
-{roundTemperature(currentWeather.apparentTemperature)}
+              Feels Like: {roundTemperature(currentWeather.apparentTemperature)}
               <span>&#8451;</span>
             </p>
-            <p>Wind Speed: {currentWeather.windSpeed} m/s                         </p>
-            <p>
-Humidity:
-{' '}
-{currentWeather.humidity * 100}
-%
-{' '}
-</p>
-            <p>Pressure: {currentWeather.pressure} mBar                         </p>
+            <p>Wind Speed: {currentWeather.windSpeed} m/s </p>
+            <p>Humidity: {currentWeather.humidity * 100}% </p>
+            <p>Pressure: {currentWeather.pressure} mBar </p>
           </div>
         </div>
         <div className="icon">
@@ -86,6 +78,6 @@ Humidity:
           <p className="summary">{currentWeather.summary}</p>
         </div>
       </CurrentWeather>
-    </>
+    </React.Fragment>
   );
 }
