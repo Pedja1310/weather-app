@@ -22,6 +22,6 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-one-expression-per-line": "error",
     "react/jsx-indent": ["error", 2],
-    "react/jsx-fragments": [true]
+    "react/jsx-fragments": [0]
   }
 }
