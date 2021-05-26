@@ -2,7 +2,7 @@
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pedja1310.github.io/weather-app/",
+  "homepage": "",
   "dependencies": {
     "chart.js": "^3.3.0",
     "gh-pages": "^3.2.0",
