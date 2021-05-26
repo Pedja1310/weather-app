@@ -37,7 +37,7 @@ export default function WeeklyWeatherComponent() {
       </Title>
       <WeeklyWeather>
         {weeklyWeather.map((item, index) =>
-          index > 0 ? <DailyWeatherCard item={item} key={item.time} /> : null
+          index > 0 ? <DailyWeatherCard item={item} key={item.dt} /> : null
         )}
       </WeeklyWeather>
     </React.Fragment>

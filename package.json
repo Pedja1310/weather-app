@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://pedja1310.github.io/weather-app/",
   "dependencies": {
-    "@react-google-maps/api": "^1.7.12",
     "chart.js": "^2.9.3",
     "gh-pages": "^2.1.1",
     "location-autocomplete": "^1.2.4",
@@ -12,9 +11,8 @@
     "react": "^16.11.0",
     "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.11.0",
-    "react-google-places-autocomplete": "^1.5.3",
+    "react-google-places-autocomplete": "^3.3.1",
     "react-scripts": "^1.1.5",
-    "react-skycons": "^0.7.0",
     "styled-components": "^4.4.1",
     "styled-normalize": "^8.0.6"
   },

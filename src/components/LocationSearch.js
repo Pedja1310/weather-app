@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import GooglePlacesAutocomplete, {
   geocodeByAddress,
-  getLatLng
+  getLatLng,
 } from "react-google-places-autocomplete";
-import { LoadScript } from "@react-google-maps/api";
 import { WeatherContext } from "./context/WeatherContext";
 
 const SearchWrapper = styled.div`
@@ -14,9 +13,9 @@ const SearchWrapper = styled.div`
 export default function LocationSearch() {
   const { getWeatherData } = useContext(WeatherContext);
 
-  const handleSelect = async e => {
+  const handleSelect = async (e) => {
     try {
-      const geocode = await geocodeByAddress(e.description);
+      const geocode = await geocodeByAddress(e.label);
       const latLng = await getLatLng(geocode[0]);
       getWeatherData(latLng);
     } catch (error) {
@@ -24,32 +23,16 @@ export default function LocationSearch() {
     }
   };
 
-  const inputStyle = {
-    width: "100%",
-    borderRadius: "4px"
-  };
-
-  const suggestionsStyles = {
-    container: {
-      width: "100%"
-    }
-  };
-
   return (
     <SearchWrapper>
-      <LoadScript
-        googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}
-        id="script-loader"
-        libraries={["geometry", "drawing", "places"]}
-        version="3"
-      >
-        <GooglePlacesAutocomplete
-          inputStyle={inputStyle}
-          suggestionsStyles={suggestionsStyles}
-          onSelect={handleSelect}
-          placeholder="Enter location"
-        />
-      </LoadScript>
+      <GooglePlacesAutocomplete
+        apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
+        onSelect={handleSelect}
+        placeholder="Enter location"
+        selectProps={{
+          onChange: handleSelect,
+        }}
+      />
     </SearchWrapper>
   );
 }
