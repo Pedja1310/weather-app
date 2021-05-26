@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import Skycons from "react-skycons";
 import { WeatherContext } from "./context/WeatherContext";
-import { formatIconName, roundTemperature } from "../helpers/helpers";
+import { roundTemperature } from "../helpers/helpers";
 
 const CurrentWeather = styled.section`
   height: 25%;
@@ -14,7 +13,7 @@ const CurrentWeather = styled.section`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   -webkit-box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.45);
   box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.45);
@@ -29,6 +28,13 @@ const CurrentWeather = styled.section`
       font-size: 8rem;
       display: flex;
       justify-content: center;
+
+      & .cels {
+        font-size: 1.5rem;
+        align-self: start;
+        padding-top: 1.5rem;
+        padding-left: 0.2rem;
+      }
     }
 
     & .weatherStats {
@@ -55,29 +61,22 @@ export default function CurrentWeatherComponent() {
   const { currentWeather } = useContext(WeatherContext);
 
   return (
-    <React.Fragment>
-      <CurrentWeather>
-        <div className="weatherInformation">
-          <div className="currentTemp">
-            <p className="temp">
-              {roundTemperature(currentWeather.temperature)}
-            </p>
-          </div>
-          <div className="weatherStats">
-            <p>
-              Feels Like: {roundTemperature(currentWeather.apparentTemperature)}
-              <span>&#8451;</span>
-            </p>
-            <p>Wind Speed: {currentWeather.windSpeed} m/s </p>
-            <p>Humidity: {currentWeather.humidity * 100}% </p>
-            <p>Pressure: {currentWeather.pressure} mBar </p>
-          </div>
+    <CurrentWeather>
+      <div className="weatherInformation">
+        <div className="currentTemp">
+          <p className="temp">{roundTemperature(currentWeather.temp)}</p>
+          <span className="cels">&#8451;</span>
         </div>
-        <div className="icon">
-          <Skycons icon={formatIconName(currentWeather.icon)} color="white" />
-          <p className="summary">{currentWeather.summary}</p>
+        <div className="weatherStats">
+          <p>
+            Feels Like: {roundTemperature(currentWeather.feels_like)}
+            <span>&#8451;</span>
+          </p>
+          <p>Wind Speed: {currentWeather.wind_speed} m/s </p>
+          <p>Humidity: {currentWeather.humidity}% </p>
+          <p>Pressure: {currentWeather.pressure} mBar </p>
         </div>
-      </CurrentWeather>
-    </React.Fragment>
+      </div>
+    </CurrentWeather>
   );
 }

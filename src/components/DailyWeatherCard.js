@@ -1,17 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import Skycons from "react-skycons";
-import {
-  formatIconName,
-  formatUnix,
-  roundTemperature
-} from "../helpers/helpers";
+import { formatUnix, roundTemperature } from "../helpers/helpers";
 
 const Card = styled.div`
   width: 13%;
-  padding: 0.3rem;
+  padding: 1rem;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #fff;
 
   -webkit-box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.45);
@@ -20,32 +15,58 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
+  & .average {
+    font-size: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .cels {
+      font-size: 1rem;
+      align-self: start;
+      padding-top: 0.9rem;
+      padding-left: 0.1rem;
+    }
+  }
+
   & .day {
     display: flex;
     justify-content: center;
   }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    margin-bottom: 1rem;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem;
+    & .temperature,
+    .day {
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 export default function DailyWeatherCard({ item }) {
-  const { temperatureLow, temperatureHigh, icon, time } = item;
-  // TODO fix indetation before github push
+  const { temp, dt } = item;
   return (
     <Card>
+      <div className="day">
+        <p>{formatUnix(dt, "ddd")}</p>
+      </div>
+      <div className="average">
+        <p>{roundTemperature(temp.day)}</p>
+        <span className="cels">&#8451;</span>
+      </div>
       <div className="temperature">
         <p>
-          Min:           {roundTemperature(temperatureLow)}
+          Min: {roundTemperature(temp.min)}
           <span>&#8451;</span>
         </p>
         <p>
-          Max:           {roundTemperature(temperatureHigh)}
+          Max: {roundTemperature(temp.max)}
           <span>&#8451;</span>
         </p>
-      </div>
-      <div className="icon">
-        <Skycons icon={formatIconName(icon)} color="white" />
-      </div>
-      <div className="day">
-        <p>{formatUnix(time, "ddd")}</p>
       </div>
     </Card>
   );

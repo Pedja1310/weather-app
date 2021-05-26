@@ -19,7 +19,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-image: linear-gradient(135deg, #009E9E, #8ECAED);
+    /* background-image: linear-gradient(135deg, #009E9E, #8ECAED); */
+    background-color: #52cfd1;
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', 'Roboto', 'Segoe UI',

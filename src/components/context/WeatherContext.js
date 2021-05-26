@@ -8,15 +8,15 @@ export const WeatherProvider = ({ children }) => {
   const [weeklyWeather, setWeeklyWeather] = useState([]);
 
   const getWeatherData = async ({ lat, lng }) => {
-    const darkSkyEndpoint = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARKSKY_API_KEY}/${lat},${lng}?units=si&exclude=minutely,flags,reports,alerts`;
+    const openWeatherEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric`;
 
-    const response = await fetch(darkSkyEndpoint);
+    const response = await fetch(openWeatherEndpoint);
     const weatherReport = await response.json();
-    const { currently, hourly, daily } = weatherReport;
+    const { current, hourly, daily } = weatherReport;
 
-    setCurrentWeather(currently);
-    setHourlyWeather(hourly.data);
-    setWeeklyWeather(daily.data.slice(1));
+    setCurrentWeather(current);
+    setHourlyWeather(hourly);
+    setWeeklyWeather(daily);
   };
 
   return (

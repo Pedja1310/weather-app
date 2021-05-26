@@ -18,11 +18,11 @@ export default function HourlyWeatherComponent() {
 
   const temepratureData = hourlyWeather
     .filter((item, index) => index < 24)
-    .map((item) => roundTemperature(item.temperature));
+    .map((item) => roundTemperature(item.temp));
 
   const temepratureLabels = hourlyWeather
     .filter((item, index) => index < 24)
-    .map((item) => `${formatUnix(item.time, "HH")}h`);
+    .map((item) => `${formatUnix(item.dt, "HH")}h`);
 
   const chartData = {
     labels: temepratureLabels,
