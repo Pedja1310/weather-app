@@ -42,7 +42,7 @@ export default function LandingPage() {
   const { getWeatherData } = useContext(WeatherContext);
 
   const getClientLocation = () => {
-    navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition((position) => {
       const latLng = {};
       latLng.lat = position.coords.latitude;
       latLng.lng = position.coords.longitude;
