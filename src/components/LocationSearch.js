@@ -19,7 +19,7 @@ export default function LocationSearch() {
       const latLng = await getLatLng(geocode[0]);
       getWeatherData(latLng);
     } catch (error) {
-      console.error(error);
+      alert("Something went wrong! Please refresh the page.");
     }
   };
 
