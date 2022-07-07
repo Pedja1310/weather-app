@@ -8,7 +8,7 @@
     "chart.js": "^2.9.4",
     "gh-pages": "^2.1.1",
     "location-autocomplete": "^1.2.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "^16.11.0",
     "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.11.0",
